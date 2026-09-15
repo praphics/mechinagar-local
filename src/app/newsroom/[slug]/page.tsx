@@ -5,6 +5,7 @@ import { getAllArticlesIncludingDrafts } from "@/lib/content/articles";
 import { getStoryBySlug } from "@/lib/newsroom/state";
 import { evidenceStatusFor } from "@/lib/newsroom/queue";
 import { describeImageProvenance } from "@/lib/newsroom/imageProvenance";
+import { getEvidenceRecord } from "@/lib/newsroom/evidence";
 
 /**
  * Internal editorial dashboard — read-only article inspection. Same
@@ -126,6 +127,60 @@ export default async function NewsroomArticleInspectionPage({
               </>
             )}
           </dl>
+
+          {story.evidenceIds.length > 0 && (
+            <div className="mt-4">
+              <p className="meta-text font-semibold mb-2">Evidence files:</p>
+              <ul className="flex flex-col gap-2">
+                {story.evidenceIds.map((evidenceId) => {
+                  const record = getEvidenceRecord(evidenceId);
+                  return (
+                    <li key={evidenceId} className="meta-text border border-line rounded-sm p-3">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <a
+                          href={`/api/newsroom/evidence/${evidenceId}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand hover:underline"
+                        >
+                          Open evidence PDF ({evidenceId})
+                        </a>
+                        {record?.requiresHumanReview && (
+                          <span className="rounded-full px-2 py-0.5 text-xs font-semibold bg-notice-tint text-notice">
+                            ⚠ scanned document — human must open and verify manually
+                          </span>
+                        )}
+                      </div>
+                      {record ? (
+                        <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-xs">
+                          <dt className="font-semibold">Source URL:</dt>
+                          <dd className="break-all">
+                            {record.sourceUrl ? (
+                              <a href={record.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                                {record.sourceUrl}
+                              </a>
+                            ) : (
+                              "—"
+                            )}
+                          </dd>
+                          <dt className="font-semibold">Document type:</dt>
+                          <dd>{record.documentType}</dd>
+                          <dt className="font-semibold">Ingested at:</dt>
+                          <dd>{record.ingestionDate}</dd>
+                          <dt className="font-semibold">Extraction status:</dt>
+                          <dd>{record.extractionStatus}</dd>
+                        </dl>
+                      ) : (
+                        <p className="mt-2 text-xs text-notice">
+                          No evidence record found for this ID — it may have been moved or deleted.
+                        </p>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </div>

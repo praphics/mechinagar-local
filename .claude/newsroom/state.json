@@ -56,7 +56,8 @@
           "event": "published",
           "note": ""
         }
-      ]
+      ],
+      "evidenceIds": []
     },
     "mechinagar-mun-cctv-camera-market-rate-notice": {
       "workflowState": "DRAFT_READY",
@@ -76,7 +77,15 @@
           "at": "2026-09-15T07:15:41.048Z",
           "event": "recorded",
           "note": "DRAFT_READY"
+        },
+        {
+          "at": "2026-09-15T07:31:22.963Z",
+          "event": "evidence-linked",
+          "note": "ev-81dd05e6dd78"
         }
+      ],
+      "evidenceIds": [
+        "ev-81dd05e6dd78"
       ]
     },
     "mechinagar-jhapa-flood-relief-collection-notice": {
@@ -98,7 +107,8 @@
           "event": "recorded",
           "note": "BLOCKED"
         }
-      ]
+      ],
+      "evidenceIds": []
     },
     "jhapa-dao-urgent-notice-bhadra11": {
       "workflowState": "BLOCKED",
@@ -119,7 +129,8 @@
           "event": "recorded",
           "note": "BLOCKED"
         }
-      ]
+      ],
+      "evidenceIds": []
     },
     "jhapa-dao-national-id-passport-notice-bhadra26": {
       "workflowState": "BLOCKED",
@@ -140,7 +151,8 @@
           "event": "recorded",
           "note": "BLOCKED"
         }
-      ]
+      ],
+      "evidenceIds": []
     }
   }
 }

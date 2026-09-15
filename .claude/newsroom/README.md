@@ -76,6 +76,7 @@ story "1" is supposed to mean now.
       "factCheckSummary": "...",
       "imageDecision": "...",
       "evidenceRequired": false,
+      "evidenceIds": [],
       "safetyIssues": [],
       "approvedAt": null,
       "rejectedAt": null,
@@ -90,3 +91,36 @@ story "1" is supposed to mean now.
 This file is not git-ignored (unlike `.claude/evidence/`) — it holds no
 personal information, only editorial workflow metadata about this
 project's own articles, which is reasonable to keep in version history.
+
+## Linking evidence to a story
+
+`evidenceRequired` (above) is only ever a boolean — it says a story is
+blocked on unresolved evidence, but on its own gives an editor no way to
+actually open the document from the dashboard. `evidenceIds` closes that
+gap: a list of evidence IDs (see `.claude/evidence/README.md` and
+`scripts/ingest-evidence.ts`) linked to this specific story, so
+`/newsroom/[slug]` (dev-only) can show a direct link to each PDF next to
+its provenance (source URL, document type, ingestion date, and whether it
+came back `requires-human-review`).
+
+Link an already-ingested document to a story with:
+
+```bash
+node --experimental-strip-types scripts/newsroom-action.ts link-evidence <slug> <evidenceId>
+```
+
+This is deliberately a separate step from ingestion — `ingest-evidence.ts`
+has no notion of newsroom stories or slugs at all (see its own header
+comment), and `link-evidence` has no notion of PDF extraction; each script
+does exactly one job. `link-evidence` only ever appends to `evidenceIds`
+and records a `history` entry — it never touches `evidenceRequired` or
+`workflowState`. Whether a linked document actually *resolves* a blocking
+evidence requirement is an editorial judgment (the PDF might turn out to
+be unreadable too), so that stays a separate, explicit decision — e.g.
+re-running `record ... --state FACT_CHECKED` once the requirement is
+genuinely resolved.
+
+Records written before this field existed simply have no `evidenceIds`
+key; both `scripts/newsroom-action.ts` and `src/lib/newsroom/state.ts`
+normalize that to `[]` on read, so nothing breaks against older state
+files.

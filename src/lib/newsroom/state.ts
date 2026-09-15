@@ -48,6 +48,13 @@ export interface NewsroomStory {
   factCheckSummary: string;
   imageDecision: string;
   evidenceRequired: boolean;
+  /**
+   * Evidence IDs (see .claude/evidence/) linked to this story via
+   * `newsroom-action.ts link-evidence` — additive alongside
+   * `evidenceRequired`, not a replacement for it. Defaults to `[]` for
+   * records predating this field (see getNewsroomState's normalization).
+   */
+  evidenceIds: string[];
   safetyIssues: string[];
   approvedAt: string | null;
   rejectedAt: string | null;
@@ -68,7 +75,12 @@ export function getNewsroomState(): NewsroomState {
   if (!fs.existsSync(STATE_PATH)) return EMPTY_STATE;
   const raw = fs.readFileSync(STATE_PATH, "utf8").trim();
   if (!raw) return EMPTY_STATE;
-  return JSON.parse(raw) as NewsroomState;
+  const parsed = JSON.parse(raw) as NewsroomState;
+  // Normalize: records written before evidenceIds existed have no such key.
+  const stories = Object.fromEntries(
+    Object.entries(parsed.stories).map(([slug, story]) => [slug, { ...story, evidenceIds: story.evidenceIds ?? [] }])
+  );
+  return { ...parsed, stories };
 }
 
 export function getStoryBySlug(slug: string): NewsroomStory | undefined {

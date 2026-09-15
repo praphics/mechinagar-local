@@ -14,6 +14,7 @@
  *   record <slug> --position N --title "..." [--factCheckPassed]
  *          [--factCheckSummary "..."] [--imageDecision "..."]
  *          [--evidenceRequired] [--state DISCOVERED|FACT_CHECKED|DRAFT_READY|BLOCKED]
+ *   link-evidence <slug> <evidenceId>
  *   approve <position-or-slug>
  *   reject  <position-or-slug> [--reason "..."]
  *   publish <position-or-slug>
@@ -49,6 +50,7 @@ import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "articles");
 const STATE_PATH = path.join(process.cwd(), ".claude", "newsroom", "state.json");
+const EVIDENCE_PROCESSED_DIR = path.join(process.cwd(), ".claude", "evidence", "processed");
 
 type WorkflowState =
   | "DISCOVERED"
@@ -86,6 +88,8 @@ interface StoryRecord {
   factCheckSummary: string;
   imageDecision: string;
   evidenceRequired: boolean;
+  /** Evidence IDs (see .claude/evidence/) linked via `link-evidence` — additive alongside evidenceRequired, not a replacement for it. */
+  evidenceIds: string[];
   safetyIssues: string[];
   approvedAt: string | null;
   rejectedAt: string | null;
@@ -108,7 +112,12 @@ function loadState(): NewsroomState {
   if (!fs.existsSync(STATE_PATH)) return { currentReport: null, stories: {} };
   const raw = fs.readFileSync(STATE_PATH, "utf8").trim();
   if (!raw) return { currentReport: null, stories: {} };
-  return JSON.parse(raw) as NewsroomState;
+  const parsed = JSON.parse(raw) as NewsroomState;
+  // Normalize: records written before evidenceIds existed have no such key.
+  for (const story of Object.values(parsed.stories)) {
+    story.evidenceIds = story.evidenceIds ?? [];
+  }
+  return parsed;
 }
 
 function saveState(state: NewsroomState): void {
@@ -124,6 +133,13 @@ function newReportId(): string {
 function assertSafeSlug(slug: string): void {
   if (!slug || slug.includes("/") || slug.includes("\\") || slug.includes("..")) {
     fail(`Invalid slug "${slug}".`);
+  }
+}
+
+/** Evidence IDs are always exactly `ev-` + a lowercase hex hash prefix — see scripts/ingest-evidence.ts. Anything else is rejected outright, same discipline as assertSafeSlug/assertSafeFilename elsewhere in this project. */
+function assertSafeEvidenceId(evidenceId: string): void {
+  if (!/^ev-[0-9a-f]+$/.test(evidenceId)) {
+    fail(`Invalid evidence ID "${evidenceId}" — expected the ev-<hash> form produced by scripts/ingest-evidence.ts.`);
   }
 }
 
@@ -251,6 +267,7 @@ function cmdRecord(slug: string, flags: Record<string, string | boolean>): void 
     factCheckSummary: typeof flags.factCheckSummary === "string" ? flags.factCheckSummary : "",
     imageDecision,
     evidenceRequired,
+    evidenceIds: state.stories[slug]?.evidenceIds ?? [],
     safetyIssues: [],
     approvedAt: null,
     rejectedAt: null,
@@ -261,6 +278,45 @@ function cmdRecord(slug: string, flags: Record<string, string | boolean>): void 
 
   saveState(state);
   console.log(`Recorded position ${position}: "${title}" (${slug}) — state: ${workflowState}`);
+}
+
+/**
+ * Links an already-ingested evidence record (see scripts/ingest-evidence.ts
+ * and .claude/evidence/README.md) to a story so an editor reviewing it can
+ * open the original PDF directly from /newsroom/[slug] instead of having to
+ * find it on disk by hand. Purely additive to evidenceIds — does NOT touch
+ * evidenceRequired/workflowState, since whether a story is still blocked is
+ * a separate editorial judgment (e.g. the linked PDF might turn out to be
+ * unreadable too, in which case the story stays BLOCKED regardless).
+ */
+function cmdLinkEvidence(slug: string, evidenceId: string): void {
+  assertSafeSlug(slug);
+  assertSafeEvidenceId(evidenceId);
+
+  const recordPath = path.join(EVIDENCE_PROCESSED_DIR, evidenceId, "record.json");
+  if (!fs.existsSync(recordPath)) {
+    fail(
+      `No evidence record found at .claude/evidence/processed/${evidenceId}/record.json — ` +
+        `ingest it first with scripts/ingest-evidence.ts.`
+    );
+  }
+
+  const state = loadState();
+  const story = state.stories[slug];
+  if (!story) fail(`No workflow record for "${slug}". Run \`record\` first.`);
+
+  if (story.evidenceIds.includes(evidenceId)) {
+    fail(`"${evidenceId}" is already linked to "${slug}".`);
+  }
+
+  story.evidenceIds.push(evidenceId);
+  const now = new Date().toISOString();
+  story.history.push({ at: now, event: "evidence-linked", note: evidenceId });
+  saveState(state);
+
+  console.log(`\nLinked evidence ${evidenceId} to "${story.title}" (${slug}).`);
+  console.log(`Story now has ${story.evidenceIds.length} linked evidence record(s).`);
+  console.log(`evidenceRequired/workflowState are unchanged — set those explicitly (e.g. via \`record ... --state ...\`) if this resolves a blocking requirement.\n`);
 }
 
 function cmdApprove(arg: string): void {
@@ -456,6 +512,10 @@ async function main(): Promise<void> {
       if (!positional[0]) fail("Usage: record <slug> --position N --title \"...\" ...");
       cmdRecord(positional[0], flags);
       break;
+    case "link-evidence":
+      if (!positional[0] || !positional[1]) fail("Usage: link-evidence <slug> <evidenceId>");
+      cmdLinkEvidence(positional[0], positional[1]);
+      break;
     case "approve":
       if (!positional[0]) fail("Usage: approve <position-or-slug>");
       cmdApprove(positional[0]);
@@ -477,7 +537,7 @@ async function main(): Promise<void> {
       break;
     default:
       console.log(
-        "Usage: newsroom-action.ts <start-report|record|approve|reject|publish|review|status> [args]\n" +
+        "Usage: newsroom-action.ts <start-report|record|link-evidence|approve|reject|publish|review|status> [args]\n" +
           "See scripts/newsroom-action.ts's header comment for full usage."
       );
       process.exit(verb ? 1 : 0);
