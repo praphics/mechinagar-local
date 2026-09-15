@@ -1,13 +1,28 @@
 {
   "currentReport": {
-    "reportId": "rep-msvc1bkd",
-    "date": "2026-08-16",
-    "generatedAt": "2026-08-16T04:56:24.013Z",
+    "reportId": "rep-mu2c7uck",
+    "date": "2026-09-15",
+    "generatedAt": "2026-09-15T07:15:33.860Z",
     "items": [
       {
         "position": 1,
-        "slug": "jhapa-dao-national-id-card-service-notice",
-        "title": "जिल्ला प्रशासन कार्यालय, झापाद्वारा राष्ट्रिय परिचयपत्र सेवा सम्बन्धी सूचना जारी"
+        "slug": "mechinagar-mun-cctv-camera-market-rate-notice",
+        "title": "मेचीनगर नगरपालिकाद्वारा सिसिटिभी क्यामेरा तथा उपकरणको बजार दर पेश गर्ने सूचना जारी"
+      },
+      {
+        "position": 2,
+        "slug": "mechinagar-jhapa-flood-relief-collection-notice",
+        "title": "बाढी पिडितको लागि रहत संकलन सम्बन्धमा (जिल्ला प्रशासन कार्यालय, झापा)"
+      },
+      {
+        "position": 3,
+        "slug": "jhapa-dao-urgent-notice-bhadra11",
+        "title": "अत्यन्त जरुरी सूचना (जिल्ला प्रशासन कार्यालय, झापा)"
+      },
+      {
+        "position": 4,
+        "slug": "jhapa-dao-national-id-passport-notice-bhadra26",
+        "title": "राष्ट्रिय परिचयपत्र तथा राहदानी सेवा सम्बन्धी सूचना (जिल्ला प्रशासन कार्यालय, झापा) -- सम्भावित follow-up"
       }
     ]
   },
@@ -40,6 +55,90 @@
           "at": "2026-08-16T05:02:17.205Z",
           "event": "published",
           "note": ""
+        }
+      ]
+    },
+    "mechinagar-mun-cctv-camera-market-rate-notice": {
+      "workflowState": "DRAFT_READY",
+      "reportId": "rep-mu2c7uck",
+      "title": "मेचीनगर नगरपालिकाद्वारा सिसिटिभी क्यामेरा तथा उपकरणको बजार दर पेश गर्ने सूचना जारी",
+      "factCheckPassed": true,
+      "factCheckSummary": "3 claims: notice date/purpose VERIFIED (direct read of municipality's own site); attachment existence PARTIALLY VERIFIED, attachment content UNVERIFIED (Evidence ID ev-81dd05e6dd78, requires-human-review); contact info VERIFIED",
+      "imageDecision": "No suitable library image -> category placeholder (government.svg)",
+      "evidenceRequired": false,
+      "safetyIssues": [],
+      "approvedAt": null,
+      "rejectedAt": null,
+      "rejectionReason": null,
+      "publishedAt": null,
+      "history": [
+        {
+          "at": "2026-09-15T07:15:41.048Z",
+          "event": "recorded",
+          "note": "DRAFT_READY"
+        }
+      ]
+    },
+    "mechinagar-jhapa-flood-relief-collection-notice": {
+      "workflowState": "BLOCKED",
+      "reportId": "rep-mu2c7uck",
+      "title": "बाढी पिडितको लागि रहत संकलन सम्बन्धमा (जिल्ला प्रशासन कार्यालय, झापा)",
+      "factCheckPassed": false,
+      "factCheckSummary": "Notice existence/date VERIFIED from DAO Jhapa site (2083/05/14, ~Aug 30 2026); body content UNVERIFIED, no readable text on listing page and no attachment link found to ingest",
+      "imageDecision": "Not reached -- story held for evidence",
+      "evidenceRequired": true,
+      "safetyIssues": [],
+      "approvedAt": null,
+      "rejectedAt": null,
+      "rejectionReason": null,
+      "publishedAt": null,
+      "history": [
+        {
+          "at": "2026-09-15T07:15:48.380Z",
+          "event": "recorded",
+          "note": "BLOCKED"
+        }
+      ]
+    },
+    "jhapa-dao-urgent-notice-bhadra11": {
+      "workflowState": "BLOCKED",
+      "reportId": "rep-mu2c7uck",
+      "title": "अत्यन्त जरुरी सूचना (जिल्ला प्रशासन कार्यालय, झापा)",
+      "factCheckPassed": false,
+      "factCheckSummary": "Notice existence/date VERIFIED from DAO Jhapa site (2083/05/11, ~Aug 27 2026); subject matter entirely UNVERIFIED -- only an attached image (सूचना_।.jpg) exists, content not readable from here",
+      "imageDecision": "Not reached -- story held for evidence",
+      "evidenceRequired": true,
+      "safetyIssues": [],
+      "approvedAt": null,
+      "rejectedAt": null,
+      "rejectionReason": null,
+      "publishedAt": null,
+      "history": [
+        {
+          "at": "2026-09-15T07:15:55.281Z",
+          "event": "recorded",
+          "note": "BLOCKED"
+        }
+      ]
+    },
+    "jhapa-dao-national-id-passport-notice-bhadra26": {
+      "workflowState": "BLOCKED",
+      "reportId": "rep-mu2c7uck",
+      "title": "राष्ट्रिय परिचयपत्र तथा राहदानी सेवा सम्बन्धी सूचना (जिल्ला प्रशासन कार्यालय, झापा) -- सम्भावित follow-up",
+      "factCheckPassed": false,
+      "factCheckSummary": "Notice existence/date VERIFIED (2083/05/26, ~Sept 11 2026); content UNVERIFIED, Evidence ID ev-d0ed655dfe6f requires-human-review; relationship to already-published jhapa-dao-national-id-card-service-notice (2026-08-16) cannot be confirmed -- may be a duplicate/repeat rather than a genuine new development",
+      "imageDecision": "Not reached -- story held for evidence",
+      "evidenceRequired": true,
+      "safetyIssues": [],
+      "approvedAt": null,
+      "rejectedAt": null,
+      "rejectionReason": null,
+      "publishedAt": null,
+      "history": [
+        {
+          "at": "2026-09-15T07:16:02.978Z",
+          "event": "recorded",
+          "note": "BLOCKED"
         }
       ]
     }
