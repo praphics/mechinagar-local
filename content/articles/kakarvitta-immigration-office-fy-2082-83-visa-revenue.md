@@ -13,8 +13,11 @@ tags: []
 featured: false
 status: published
 featuredImage:
-  src: /images/categories/kakarvitta-border.svg
-  alt: "काकरभिट्टा सीमा नाकाको प्रतीकात्मक तस्बिर"
+  src: /images/library/kakarvitta-border/kakarbhitta-border-01.jpg
+  alt: "नेपाल–भारत सीमा नाका काँकरभिट्टाको दृश्य।"
+  caption: "Bhaskarrijal, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 काँकरभिट्टा अध्यागमन कार्यालयले आर्थिक वर्ष २०८२/०८३ मा प्रवेशाज्ञा (भिसा) दस्तुरबापत २ करोड ६५ लाख ६८ हजार ५३७ रुपैयाँ राजस्व सङ्कलन गरेको बिजनेस न्युजको प्रतिवेदनमा उल्लेख छ। सोही अवधिमा कार्यालयले ८ हजार २९७ पर्यटक भिसा, १६३ पारिवारिक भिसा, ४९ अनिवासी नेपाली (एनआरएन) भिसा र ३२ विवाह भिसा जारी गरेको प्रतिवेदनमा जनाइएको छ।

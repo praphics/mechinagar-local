@@ -13,8 +13,11 @@ tags: []
 featured: true
 status: published
 featuredImage:
-  src: /images/categories/infrastructure.svg
-  alt: "सडक स्तरोन्नति कार्यको प्रतीकात्मक तस्बिर"
+  src: /images/library/infrastructure/kakarbhitta-east-west-highway-01.jpg
+  alt: "काँकरभिट्टास्थित पूर्व–पश्चिम राजमार्गको दृश्य।"
+  caption: "Bhaskarrijal, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 मेचीनगर नगरपालिकाको पूर्वाधार शाखाले वडा नं. ६ भित्रको झन्डै डेढ किलोमिटर लामो सडकमा स्तरोन्नति र किनारा ढल निर्माणको काम सुरु गरेको छ। नगरपालिकाका अनुसार यो काम आगामी एक महिनाभित्र सक्ने लक्ष्य राखिएको छ।

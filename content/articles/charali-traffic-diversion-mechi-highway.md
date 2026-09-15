@@ -13,8 +13,11 @@ tags: []
 featured: false
 status: published
 featuredImage:
-  src: /images/categories/infrastructure.svg
-  alt: "राजमार्ग मर्मत कार्यको प्रतीकात्मक तस्बिर"
+  src: /images/library/infrastructure/kakarbhitta-east-west-highway-01.jpg
+  alt: "काँकरभिट्टास्थित पूर्व–पश्चिम राजमार्गको दृश्य।"
+  caption: "Bhaskarrijal, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 सडक डिभिजन कार्यालयका अनुसार चरालीनजिकैको राजमार्ग खण्डमा भत्किएको सतह मर्मत गर्न आगामी तीन दिन सवारी साधन आवतजावतलाई वैकल्पिक स्थानीय बाटोमा मोड्ने व्यवस्था मिलाइएको छ।

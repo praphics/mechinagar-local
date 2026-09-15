@@ -13,8 +13,11 @@ tags: []
 featured: false
 status: published
 featuredImage:
-  src: /images/categories/community.svg
-  alt: "समुदाय श्रेणीको प्रतीकात्मक तस्बिर"
+  src: /images/library/community/kakarbhitta-rickshaw-01.jpg
+  alt: "काँकरभिट्टा क्षेत्रसँग सम्बन्धित स्थानीय यातायातको दृश्य।"
+  caption: "Nirmal Raj Joshi, Wikimedia Commons, CC BY-SA 3.0"
+  type: photograph
+  usage: documentary
 ---
 
 रोटरी क्लब अफ काँकरभिट्टाले गत जुन १७, २०२६ मा धुलाबारी क्याम्पस (मेचीनगर-१०) लाई नयाँ शुद्ध खानेपानी आयोजना हस्तान्तरण गरेको थियो। यो कार्यक्रम रोटरी इन्टरनेशनल डिस्ट्रिक्ट ३२९२ (नेपाल-भुटान) अन्तर्गत सञ्चालित रोटरी क्लब अफ काँकरभिट्टाको पहलमा भएको मेरो मेचीनगरले जनाएको छ।

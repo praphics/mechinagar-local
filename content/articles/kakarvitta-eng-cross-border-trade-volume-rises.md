@@ -13,8 +13,11 @@ tags: []
 featured: false
 status: published
 featuredImage:
-  src: /images/categories/kakarvitta-border.svg
-  alt: "Symbolic image of the Kakarvitta border crossing"
+  src: /images/library/kakarvitta-border/kakarbhitta-border-01.jpg
+  alt: "View of the Nepal–India border crossing at Kakarvitta."
+  caption: "Bhaskarrijal, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 Traders operating near the Kakarvitta crossing say freight volume has picked up noticeably over the past two weeks, a pattern local business associations describe as typical ahead of the festival season as retailers restock inventory.

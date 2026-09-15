@@ -12,7 +12,12 @@ sourceUrl: null
 tags: []
 featured: false
 status: draft
-featuredImage: null
+featuredImage:
+  src: /images/library/business/kakarbhitta-hotels-01.jpg
+  alt: "काँकरभिट्टाका होटल तथा व्यवसायिक क्षेत्रको दृश्य।"
+  caption: "Christopher J. Fynn, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 स्थानीय व्यापार संघका अनुसार यो अभियानमार्फत साना पसल, सेवा प्रदायक र गृह उद्योगहरूले आफ्नो व्यवसायको विवरण नि:शुल्क सूचीकरण गराउन सक्नेछन्। यसले ग्राहकहरूलाई नजिकैका सेवा तथा उत्पादन खोज्न सजिलो बनाउने संघको भनाइ छ।

@@ -13,8 +13,11 @@ tags: []
 featured: true
 status: published
 featuredImage:
-  src: /images/categories/kakarvitta-border.svg
-  alt: "काकरभिट्टा सीमा नाकाको प्रतीकात्मक तस्बिर"
+  src: /images/library/kakarvitta-border/kakarbhitta-border-01.jpg
+  alt: "नेपाल–भारत सीमा नाका काँकरभिट्टाको दृश्य।"
+  caption: "Bhaskarrijal, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 काकरभिट्टा भन्सार बिन्दुमा आगामी दुई हप्ता सामान ढुवानी गर्ने ट्रकहरूको चाप बढ्ने आकलन गर्दै भन्सार कार्यालयले सेवा समय अस्थायी रूपमा विस्तार गरेको जनाएको छ। साविक बिहान ७ बजेदेखि साँझ ७ बजेसम्म हुने सेवा अब बिहान ६ बजेदेखि राति १० बजेसम्म हुनेछ।

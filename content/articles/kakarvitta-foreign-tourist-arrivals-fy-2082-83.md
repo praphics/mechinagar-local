@@ -13,8 +13,11 @@ tags: []
 featured: false
 status: published
 featuredImage:
-  src: /images/categories/kakarvitta-border.svg
-  alt: "काकरभिट्टा सीमा नाकाको प्रतीकात्मक तस्बिर"
+  src: /images/library/kakarvitta-border/kakarbhitta-border-01.jpg
+  alt: "नेपाल–भारत सीमा नाका काँकरभिट्टाको दृश्य।"
+  caption: "Bhaskarrijal, Wikimedia Commons, CC BY-SA 4.0"
+  type: photograph
+  usage: documentary
 ---
 
 अनलाइनखबरको एक प्रतिवेदनअनुसार, आर्थिक वर्ष २०८२/०८३ मा काँकरभिट्टा सीमा नाकाबाट ८६ देशका ९ हजार ४४७ विदेशी पर्यटक नेपाल प्रवेश गरेका छन्। यो तथ्याङ्क अध्यागमन कार्यालय काँकरभिट्टाको हवालाबाट प्रकाशित गरिएको हो।

@@ -12,7 +12,12 @@ sourceUrl: null
 tags: []
 featured: false
 status: published
-featuredImage: null
+featuredImage:
+  src: /images/library/community/mechinagar-community-01.jpg
+  alt: "काकरभिट्टा, मेचीनगर नगरपालिकाको सामान्य दृश्य।"
+  caption: "Nirmal Raj Joshi, Wikimedia Commons, CC BY-SA 3.0"
+  type: photograph
+  usage: documentary
 ---
 
 काकरभिट्टा स्वास्थ्य चौकीले आगामी हप्ता वरपरका वडाका बासिन्दाहरूका लागि निःशुल्क सामान्य स्वास्थ्य जाँच, रक्तचाप र मधुमेह परीक्षणसहितको शिविर सञ्चालन गर्ने जनाएको छ।
