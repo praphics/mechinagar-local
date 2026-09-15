@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import type { Article, ArticleImage, ArticleStatus, Language } from "@/lib/types";
+import type { Article, ArticleAttachment, ArticleImage, ArticleStatus, Language } from "@/lib/types";
 import { getCategoryBySlug } from "@/lib/data/categories";
 
 /**
@@ -35,6 +35,7 @@ interface RawFrontmatter {
   featured?: unknown;
   status?: unknown;
   featuredImage?: unknown;
+  attachment?: unknown;
 }
 
 function readArticleFiles(): string[] {
@@ -73,6 +74,32 @@ function parseFeaturedImage(value: unknown, file: string): ArticleImage | undefi
     provider: typeof img.provider === "string" ? img.provider : undefined,
     promptVersion: typeof img.promptVersion === "string" ? img.promptVersion : undefined,
   };
+}
+
+/**
+ * Same defensive shape as parseFeaturedImage: an explicit object with
+ * required string fields, or absent entirely. Additionally enforces that
+ * `src` actually points under public/documents/ and is a .pdf — a typo
+ * here (e.g. pointing at some other public path) fails loudly at build
+ * time rather than silently linking to the wrong thing. Nothing about
+ * this parses or trusts the PDF's *contents* — the human-review step that
+ * makes a document safe to publish happens entirely outside this repo
+ * (see public/documents/README.md).
+ */
+function parseAttachment(value: unknown, file: string): ArticleAttachment | undefined {
+  if (value === null || value === undefined) return undefined;
+  if (typeof value !== "object") {
+    throw new Error(`content/articles/${file}: "attachment" must be an object or null`);
+  }
+  const att = value as Record<string, unknown>;
+  const src = requireString(att.src, "attachment.src", file);
+  const label = requireString(att.label, "attachment.label", file);
+  if (!src.startsWith("/documents/") || !src.toLowerCase().endsWith(".pdf")) {
+    throw new Error(
+      `content/articles/${file}: "attachment.src" must start with "/documents/" and end in ".pdf" (got "${src}")`
+    );
+  }
+  return { src, label };
 }
 
 function parseArticleFile(filename: string): Article {
@@ -124,6 +151,7 @@ function parseArticleFile(filename: string): Article {
     source,
     sourceUrl,
     featuredImage: parseFeaturedImage(data.featuredImage, filename),
+    attachment: parseAttachment(data.attachment, filename),
     tags,
     featured,
     status,

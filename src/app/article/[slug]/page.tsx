@@ -127,15 +127,31 @@ export default async function ArticlePage({
         dangerouslySetInnerHTML={{ __html: article.bodyHtml }}
       />
 
-      {article.source && (
-        <div className="mt-8 rounded-sm border border-line bg-surface px-4 py-3 meta-text">
-          स्रोत:{" "}
-          {article.sourceUrl ? (
-            <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
-              {article.source}
-            </a>
-          ) : (
-            article.source
+      {(article.source || article.attachment) && (
+        <div className="mt-8 flex flex-col gap-2">
+          {article.source && (
+            <div className="rounded-sm border border-line bg-surface px-4 py-3 meta-text">
+              स्रोत:{" "}
+              {article.sourceUrl ? (
+                <a href={article.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                  {article.source}
+                </a>
+              ) : (
+                article.source
+              )}
+            </div>
+          )}
+          {article.attachment && (
+            <div className="rounded-sm border border-line bg-surface px-4 py-3 meta-text">
+              <a
+                href={article.attachment.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-brand hover:underline"
+              >
+                {article.attachment.label}
+              </a>
+            </div>
           )}
         </div>
       )}

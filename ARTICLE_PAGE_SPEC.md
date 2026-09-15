@@ -22,7 +22,7 @@ Functional/UX spec for individual article pages. Mobile-first.
 4. **Byline + publish date** (+ "Updated" timestamp if corrected after publishing).
 5. **Lead image** (if available) with caption and credit/source.
 6. **Article body** — plain, readable typography; short paragraphs; support for embedded quotes, links to sources, and images.
-7. **Source attribution block** — if the article draws on an official notice or another outlet, a clear "Source: [Municipality name / outlet name]" line with a link, placed either at the top (for republished announcements) or at the bottom (for original reporting that references sources).
+7. **Source attribution block** — if the article draws on an official notice or another outlet, a clear "Source: [Municipality name / outlet name]" line with a link, placed either at the top (for republished announcements) or at the bottom (for original reporting that references sources). **Optional attachment link** — for an official notice where the editor has manually reviewed the original document (e.g. a scanned PDF) and confirmed it's safe to publish (contains no personal information), a clearly-labeled download link to that document renders in the same area, styled consistently with the source block. This is opt-in per article and never automatic — see `public/documents/README.md` for the human-review requirement.
 8. **Social share buttons** — placed near the top (after headline/byline) and optionally repeated at the end. Prioritize Facebook and a generic "copy link" / WhatsApp share, given the local audience.
 9. **Newsletter subscribe prompt** — a compact inline block after the article body ("Enjoyed this? Get Mechinagar news in your inbox") — secondary to the homepage's main subscribe block, not duplicative or pushy.
 10. **Related articles** — 2–3 links, same category or tag, to encourage further reading (helps both engagement and internal SEO linking).
@@ -41,7 +41,7 @@ Functional/UX spec for individual article pages. Mobile-first.
 
 ## 4. Content model (conceptual — not a schema/implementation)
 
-Each article conceptually needs: title, slug, body, category, language, publish date, updated date (optional), author/byline, source attribution (optional), lead image + alt text + caption (optional), summary/excerpt (used in listings and meta description), status (draft/published).
+Each article conceptually needs: title, slug, body, category, language, publish date, updated date (optional), author/byline, source attribution (optional), lead image + alt text + caption (optional), summary/excerpt (used in listings and meta description), status (draft/published), public document attachment (optional — a link + label for a manually-reviewed original document, e.g. an official notice PDF).
 
 This is deliberately described at a conceptual level — the actual data model/CMS choice is an implementation decision for later, not part of this document.
 

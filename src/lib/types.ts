@@ -36,6 +36,21 @@ export interface ArticleImage {
 }
 
 /**
+ * An official document (e.g. a scanned government notice) the editor has
+ * manually reviewed and confirmed is safe to publish publicly — no
+ * personal information (names, citizenship numbers, addresses, phone
+ * numbers). That review happens outside this codebase; nothing here
+ * decides what's safe. `src` must live under `public/documents/` — see
+ * that folder's own README.md for the human-review requirement, and
+ * src/lib/content/articles.ts's parsing for the enforced path/extension
+ * shape.
+ */
+export interface ArticleAttachment {
+  src: string; // path under /documents/, e.g. "/documents/mechinagar-mun-property-tax-notice-2083.pdf"
+  label: string; // human-readable link text, e.g. "सम्पत्ति कर सूचना (PDF)"
+}
+
+/**
  * Runtime shape used throughout the app — produced by the content loader
  * (src/lib/content/articles.ts) from content/articles/*.md frontmatter.
  * `headline`/`categorySlug` correspond to the authoring keys `title`/
@@ -55,6 +70,7 @@ export interface Article {
   source?: string;
   sourceUrl?: string;
   featuredImage?: ArticleImage;
+  attachment?: ArticleAttachment;
   tags: string[];
   featured: boolean;
   status: ArticleStatus;
