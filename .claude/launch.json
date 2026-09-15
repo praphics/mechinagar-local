@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "mechinagar-local-dev",
-      "runtimeExecutable": "D:\\Mechinagar-Local\\.claude\\dev.bat",
+      "runtimeExecutable": "E:\\Mechinagar-Local\\.claude\\dev.bat",
       "runtimeArgs": [],
       "port": 3000
     }

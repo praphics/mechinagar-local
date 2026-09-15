@@ -1,4 +1,4 @@
 @echo off
 set "PATH=C:\Program Files\nodejs;%PATH%"
-cd /d "D:\Mechinagar-Local"
+cd /d "E:\Mechinagar-Local"
 call npm run dev
