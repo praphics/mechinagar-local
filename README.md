@@ -15,3 +15,9 @@ Content in `src/lib/data/` is mock/sample data for the MVP visual foundation —
 ## Stack
 
 Next.js (App Router) · React · TypeScript · Tailwind CSS
+
+## Deployment
+
+Hosted on Netlify (`mechinagar-local-news`), with continuous deployment
+connected to this repo's `main` branch — every push triggers an automatic
+build and deploy.
