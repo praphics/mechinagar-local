@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#cfe0dd"/>
+  <path d="M0 640 L1600 640" stroke="#215d55" stroke-width="10" stroke-dasharray="40 26" opacity="0.35"/>
+  <circle cx="1300" cy="260" r="220" fill="#215d55" opacity="0.14"/>
+  <path d="M0 780 L500 660 L900 800 L1600 700 L1600 1000 L0 1000 Z" fill="#215d55" opacity="0.18"/>
+  <text x="80" y="900" font-family="Noto Sans Devanagari, Noto Sans, sans-serif" font-size="56" font-weight="700" fill="#1c3d38">काकरभिट्टा सीमा</text>
+</svg>

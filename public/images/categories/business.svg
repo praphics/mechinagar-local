@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#e6dcc0"/>
+  <g opacity="0.25" fill="#8a6d1f">
+    <rect x="220" y="560" width="90" height="240"/>
+    <rect x="360" y="480" width="90" height="320"/>
+    <rect x="500" y="600" width="90" height="200"/>
+    <rect x="640" y="420" width="90" height="380"/>
+    <rect x="780" y="520" width="90" height="280"/>
+  </g>
+  <circle cx="1280" cy="240" r="200" fill="#8a6d1f" opacity="0.12"/>
+  <text x="80" y="900" font-family="Noto Sans Devanagari, Noto Sans, sans-serif" font-size="56" font-weight="700" fill="#3a2f14">व्यापार तथा अर्थतन्त्र</text>
+</svg>

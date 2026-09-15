@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+
+[build.environment]
+  # Next.js 16 requires Node >=20.9.0 (see node_modules/next/package.json's
+  # "engines"). Pinned explicitly because Netlify's default build image may
+  # use an older Node version otherwise. Matches this project's local dev
+  # Node version (v22.14.0).
+  NODE_VERSION = "22"
+
+# No [[plugins]] block: Netlify auto-detects Next.js via package.json and
+# applies its own Next.js Runtime automatically — this project doesn't use
+# output: "export" (static export), which would break the dynamic routes
+# (/category/[slug], /search, /newsroom/[slug]) and the newsroom/review
+# read-only tooling, so the default Node-server-backed handling is required,
+# not static hosting. No publish directory is set here for the same reason:
+# the Next.js Runtime manages its own output, not a static folder.

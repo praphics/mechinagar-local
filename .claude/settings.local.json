@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Read(//c/Users/admin/**)",
+      "Read(//c/Users/admin/AppData/**)",
+      "Read(//c/Users/admin/AppData/Roaming/**)",
+      "Read(//c/Users/admin/AppData/Local/**)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebSearch",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.pexels.com)",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(node -e \"1\")"
+    ]
+  }
+}

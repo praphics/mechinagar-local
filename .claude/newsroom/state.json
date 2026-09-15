@@ -1,0 +1,47 @@
+{
+  "currentReport": {
+    "reportId": "rep-msvc1bkd",
+    "date": "2026-08-16",
+    "generatedAt": "2026-08-16T04:56:24.013Z",
+    "items": [
+      {
+        "position": 1,
+        "slug": "jhapa-dao-national-id-card-service-notice",
+        "title": "जिल्ला प्रशासन कार्यालय, झापाद्वारा राष्ट्रिय परिचयपत्र सेवा सम्बन्धी सूचना जारी"
+      }
+    ]
+  },
+  "stories": {
+    "jhapa-dao-national-id-card-service-notice": {
+      "workflowState": "PUBLISHED",
+      "reportId": "rep-msvc1bkd",
+      "title": "जिल्ला प्रशासन कार्यालय, झापाद्वारा राष्ट्रिय परिचयपत्र सेवा सम्बन्धी सूचना जारी",
+      "factCheckPassed": true,
+      "factCheckSummary": "4 claims, all VERIFIED (direct read of source document)",
+      "imageDecision": "No suitable library image -> category placeholder (government.svg)",
+      "evidenceRequired": false,
+      "safetyIssues": [],
+      "approvedAt": "2026-08-16T04:56:45.631Z",
+      "rejectedAt": null,
+      "rejectionReason": null,
+      "publishedAt": "2026-08-16T05:02:17.205Z",
+      "history": [
+        {
+          "at": "2026-08-16T04:56:35.816Z",
+          "event": "recorded",
+          "note": "DRAFT_READY"
+        },
+        {
+          "at": "2026-08-16T04:56:45.631Z",
+          "event": "approved",
+          "note": ""
+        },
+        {
+          "at": "2026-08-16T05:02:17.205Z",
+          "event": "published",
+          "note": ""
+        }
+      ]
+    }
+  }
+}

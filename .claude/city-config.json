@@ -1,0 +1,312 @@
+{
+  "_purpose": "City-specific configuration consumed by the five reusable Skills under .claude/skills/ (local-news-research, local-fact-checker, local-article-writer, local-image-editorial, local-newsletter). See .claude/city-config.README.md for field-by-field explanation, the city-configuration-vs-Skill boundary, and how another city reuses the same Skills by supplying its own copy of this file. This is infrastructure/configuration only — it contains no API keys, passwords, tokens, or other credentials, and never should.",
+  "cityIdentity": {
+    "cityName": { "ne": "मेचीनगर", "en": "Mechinagar" },
+    "municipality": { "ne": "मेचीनगर नगरपालिका", "en": "Mechinagar Municipality" },
+    "district": { "ne": "झापा", "en": "Jhapa" },
+    "province": { "ne": "कोशी प्रदेश", "en": "Koshi Province" },
+    "country": { "ne": "नेपाल", "en": "Nepal" },
+    "primaryLanguage": "ne",
+    "localityTerms": [
+      "mechinagar",
+      "kakarbhitta",
+      "kakarvitta",
+      "jhapa",
+      "mechi",
+      "eastern nepal",
+      "मेचीनगर",
+      "काकरभिट्टा",
+      "काँकरभिट्टा",
+      "जापा",
+      "मेची",
+      "पूर्वी नेपाल"
+    ]
+  },
+  "editorial": {
+    "preferredLanguage": "ne",
+    "localTerminology": [
+      { "term": "वडा", "meaning": "Ward — a municipal administrative subdivision (e.g. वडा नं. ९)." },
+      { "term": "नगरपालिका", "meaning": "Municipality — the governing authority for the city." },
+      { "term": "टोल विकास संस्था", "meaning": "Tole (neighborhood) development organization — a local community body." },
+      { "term": "जिल्ला प्रशासन कार्यालय", "meaning": "District Administration Office." },
+      { "term": "भन्सार कार्यालय", "meaning": "Customs office." },
+      { "term": "अध्यागमन कार्यालय", "meaning": "Immigration office." }
+    ],
+    "articleCategories": {
+      "note": "Not duplicated here — the authoritative, live category list is src/lib/data/categories.ts. This config references it rather than redefining it, per the 'do not create a second competing schema' rule.",
+      "ref": "src/lib/data/categories.ts"
+    },
+    "newsletterName": { "ne": "मेचीनगर लोकल डेली", "en": "Mechinagar Local Daily" },
+    "newsletterLanguage": "ne"
+  },
+  "sources": {
+    "_note": "Every source below is reused from project documents already in this repo (primarily SOURCES.md, plus article 'source'/'sourceUrl' frontmatter fields) — no new official source URLs were invented for this configuration. Groups with no currently-known source are left as an empty 'sources' array with a 'status' note rather than guessed at. 'priority' follows the same 1 (highest) - 6 (lowest) tiering documented in local-fact-checker/SKILL.md and local-news-research/SKILL.md.",
+    "municipality": {
+      "sources": [
+        {
+          "name": "Mechinagar Municipality — official site",
+          "url": "https://mechinagarmun.gov.np/",
+          "sourceType": "primary-official",
+          "priority": 1,
+          "notes": "English: https://mechinagarmun.gov.np/en. Primary source for municipal announcements, ward information, and official notices. Also used verbatim as the article-level 'source' field (\"मेचीनगर नगरपालिका\") in this project's published content, with specific article URLs on this domain already cited as sourceUrl (see SOURCES.md §1)."
+        }
+      ],
+      "status": "populated from SOURCES.md §1 and existing article frontmatter"
+    },
+    "government": {
+      "sources": [
+        {
+          "name": "District Administration Office, Jhapa",
+          "url": "https://daojhapa.moha.gov.np/en",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Ministry of Home Affairs district office. Notices, office directory, citizenship/passport section info."
+        },
+        {
+          "name": "District Coordination Committee, Jhapa",
+          "url": "https://daojhapa.moha.gov.np/en/post/district-co-ordination-committee-jhapa-2",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "District-level coordination body info, via DAO Jhapa site."
+        },
+        {
+          "name": "Immigration Office, Kakarvitta",
+          "url": "https://kakarbhitta.immigration.gov.np/en",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Official Kakarvitta border immigration office — visa types, arrival/departure information."
+        },
+        {
+          "name": "Department of Immigration, Nepal",
+          "url": "https://www.immigration.gov.np/en",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "National immigration department; includes office directory and Kakarvitta office profile."
+        },
+        {
+          "name": "District Police Office, Jhapa",
+          "url": "https://nwchelpline.gov.np/service-mapping/detail/264-District-Police-Office",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Contact listing. National site: nepalpolice.gov.np."
+        },
+        {
+          "name": "काकरभिट्टा भन्सार कार्यालय (Kakarbhitta Customs Office)",
+          "url": null,
+          "urlStatus": "not available in project sources — requires configuration",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Used as an article 'source' field in this project's published content (sourceUrl: null in that article) — no confirmed official URL currently on record."
+        },
+        {
+          "name": "वडा नं. ९ कार्यालय (Ward No. 9 Office)",
+          "url": null,
+          "urlStatus": "not available in project sources — requires configuration",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Used as an article 'source' field in this project's published content (sourceUrl: null in that article). A related Facebook page for this ward is listed under 'community' below, per SOURCES.md's own categorization of it as a community/social lead rather than a confirmed official channel."
+        },
+        {
+          "name": "सडक डिभिजन कार्यालय (Road Division Office)",
+          "url": null,
+          "urlStatus": "not available in project sources — requires configuration",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Used as an article 'source' field in this project's published content (sourceUrl: null in that article)."
+        }
+      ],
+      "status": "populated from SOURCES.md §1 and existing article frontmatter; three offices named in article sources have no confirmed URL yet"
+    },
+    "education": {
+      "sources": [],
+      "status": "requires configuration — no education-sector source is currently on record in this project"
+    },
+    "agriculture": {
+      "sources": [],
+      "status": "requires configuration — no agriculture-sector source is currently on record in this project"
+    },
+    "health": {
+      "sources": [
+        {
+          "name": "Kakarvitta Health Post (govt.)",
+          "url": "https://www.facebook.com/p/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF-%E0%A4%9A%E0%A5%8C%E0%A4%95%E0%A5%80-%E0%A4%95%E0%A4%BE%E0%A4%81%E0%A4%95%E0%A4%B0%E0%A4%AD%E0%A4%BF%E0%A4%9F%E0%A5%8D%E0%A4%9F%E0%A4%BE-100094342525117/",
+          "sourceType": "government-agency",
+          "priority": 2,
+          "notes": "Government health post serving Kakarvitta, Mechinagar-6. Matches the article-level source \"काकरभिट्टा स्वास्थ्य चौकी\" used in this project's published content (that article's sourceUrl is null)."
+        },
+        {
+          "name": "Mechi Netralaya (eye hospital)",
+          "url": "https://mechinetralaya.org/",
+          "sourceType": "institutional",
+          "priority": 4,
+          "notes": "Established eye hospital in Kakarvitta."
+        },
+        {
+          "name": "Kakarvitta Eye Care Center",
+          "url": "https://kakarvittaeyecarecenter.com/contact-us/",
+          "sourceType": "institutional",
+          "priority": 4,
+          "notes": "Established 2014, Mechinagar-10."
+        }
+      ],
+      "status": "populated from SOURCES.md §4 and existing article frontmatter"
+    },
+    "transport": {
+      "sources": [],
+      "status": "requires configuration — no dedicated transport-sector source is currently on record in this project (border/immigration sources most relevant to transport are filed under 'government' above)"
+    },
+    "business": {
+      "sources": [
+        {
+          "name": "BizDire Nepal — Jhapa businesses directory",
+          "url": "https://bizdirenepal.com/city/jhapa",
+          "sourceType": "reference-directory",
+          "priority": 5,
+          "notes": "Local business directory listing — useful lead source, not an editorial source on its own."
+        },
+        {
+          "name": "Bizness News",
+          "url": null,
+          "urlStatus": "only a specific article URL is on record — homepage not confirmed",
+          "exampleArticleUrl": "https://biznessnews.com/posts/54557",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "Used as an article 'source' field in this project's published content, with the specific article URL above as sourceUrl. General homepage URL not independently confirmed — do not assume https://biznessnews.com/ without verifying."
+        }
+      ],
+      "status": "populated from SOURCES.md §4 and existing article frontmatter"
+    },
+    "community": {
+      "sources": [
+        {
+          "name": "\"Mechinagar — Jhapa District\" community Facebook page",
+          "url": "https://www.facebook.com/mechinagar/",
+          "sourceType": "community-lead",
+          "priority": 6,
+          "notes": "Early-signal source; verify claims before publishing. Covers Kakarvitta, Itabhitta/Ittabhatta, Dhulabari."
+        },
+        {
+          "name": "Mechinagar Municipality Office (Facebook)",
+          "url": "https://www.facebook.com/527841337330441",
+          "sourceType": "community-lead",
+          "priority": 6,
+          "notes": "Appears office-affiliated — verify authenticity before treating as official."
+        },
+        {
+          "name": "Mechinagar Municipality Ward 14 (Facebook)",
+          "url": "https://www.facebook.com/p/Mechinagar-Municipality-14-100069297606043/",
+          "sourceType": "community-lead",
+          "priority": 6,
+          "notes": "Ward-level government-affiliated page."
+        },
+        {
+          "name": "Mechinagar Municipality Ward 9, Dhulabari (Facebook)",
+          "url": "https://www.facebook.com/p/Mechinagar-Municipality-Ward-Number-09-DhulabariJhapaNepal-100063482705553/",
+          "sourceType": "community-lead",
+          "priority": 6,
+          "notes": "Ward-level page covering Dhulabari specifically — related to, but not confirmed as the same channel as, the formal 'वडा नं. ९ कार्यालय' source filed under 'government' above."
+        },
+        {
+          "name": "मेरो मेचीनगर (Mero Mechinagar)",
+          "url": null,
+          "urlStatus": "only a specific article URL is on record — homepage not independently confirmed",
+          "exampleArticleUrl": "https://meromechinagar.com/uncategorized/66794/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "Used as an article 'source' field in this project's published content, with the specific article URL above as sourceUrl."
+        }
+      ],
+      "status": "populated from SOURCES.md §3 and existing article frontmatter"
+    },
+    "environment": {
+      "sources": [],
+      "status": "requires configuration — no dedicated environment-sector source is currently on record in this project"
+    },
+    "other": {
+      "sources": [
+        {
+          "name": "Online Khabar (अनलाइनखबर)",
+          "url": "https://onlinekhabar.com/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "Established (2006) independent Nepali digital news outlet. Used as an article 'source' field (\"अनलाइनखबर\") in this project's published content, with a specific article sourceUrl on this domain already cited."
+        },
+        {
+          "name": "Nepal News — Jhapa district tag",
+          "url": "https://nepalnews.com/tag/jhapa-district/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "English: https://english.nepalnews.com/tag/jhapa-district/."
+        },
+        {
+          "name": "Nepal News — Mechinagar Municipality tag",
+          "url": "https://nepalnews.com/tag/mechinagar-municipality/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "Municipality-specific tag — directly relevant."
+        },
+        {
+          "name": "Ratopati — Jhapa coverage",
+          "url": "https://english.ratopati.com/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "Major Nepali news portal (Nepali + English editions) with Jhapa coverage; tag pages referenced via search."
+        },
+        {
+          "name": "myRepublica (Nagarik Network)",
+          "url": "https://myrepublica.nagariknetwork.com/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "English-language Nepali daily; has covered Kakarvitta border news directly."
+        },
+        {
+          "name": "Rising Nepal Daily",
+          "url": "https://risingnepaldaily.com/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "State-affiliated English daily; has covered Kakarvitta border news directly."
+        },
+        {
+          "name": "Khabarhub",
+          "url": "https://english.khabarhub.com/",
+          "sourceType": "secondary-reporting",
+          "priority": 5,
+          "notes": "English-language Nepali news outlet; has covered Kakarvitta customs news directly."
+        },
+        {
+          "name": "Newstral — Jhapa regional aggregator",
+          "url": "https://newstral.com/en/regions/nepal/purwanchal/mechi/jhapa",
+          "sourceType": "discovery-aggregator",
+          "priority": 6,
+          "notes": "Discovery tool only — verify against the original outlet before citing."
+        }
+      ],
+      "status": "populated from SOURCES.md §2 and existing article frontmatter"
+    }
+  },
+  "image": {
+    "libraryLocation": "public/images/library/",
+    "manifestLocation": "public/images/library/manifest.json",
+    "categoryPlaceholders": "public/images/categories/<category-slug>.svg",
+    "supportedImageTypes": ["photograph", "illustration", "ai-generated-illustration", "placeholder"],
+    "note": "Referenced, not modified — this config points at the existing image library/manifest paths so a Skill knows where to look. See .claude/skills/local-image-editorial/SKILL.md for the decision methodology."
+  },
+  "article": {
+    "contentDirectory": "content/articles/",
+    "frontmatterSchemaRef": "src/lib/types.ts (Article, ArticleImage types)",
+    "categoriesRef": "src/lib/data/categories.ts",
+    "note": "Referenced, not redefined — no second/competing article schema is introduced here."
+  },
+  "newsletter": {
+    "newsletterName": { "ne": "मेचीनगर लोकल डेली", "en": "Mechinagar Local Daily" },
+    "defaultLanguage": "ne",
+    "approxStoryCount": "3-6",
+    "shortUpdatesEnabled": true,
+    "upcomingInfoSectionEnabled": true,
+    "note": "Configuration only — does not create or send a newsletter. See .claude/skills/local-newsletter/SKILL.md and scripts/build-newsletter.ts for the actual generation workflow.",
+    "beehiiv": {
+      "publicationId": "pub_c4745ca2-688f-4afe-a477-fe80c7839913",
+      "status": "configured"
+    }
+  }
+}

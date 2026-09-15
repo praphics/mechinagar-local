@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#d8ddd9"/>
+  <rect x="0" y="600" width="1600" height="12" fill="#3f4a44" opacity="0.3"/>
+  <g opacity="0.25" fill="#3f4a44">
+    <rect x="200" y="420" width="60" height="200"/>
+    <rect x="340" y="420" width="60" height="200"/>
+    <rect x="480" y="420" width="60" height="200"/>
+    <rect x="620" y="420" width="60" height="200"/>
+    <rect x="760" y="420" width="60" height="200"/>
+    <path d="M160 420 L820 420 L490 260 Z"/>
+  </g>
+  <text x="80" y="900" font-family="Noto Sans Devanagari, Noto Sans, sans-serif" font-size="56" font-weight="700" fill="#2c332f">सरकार तथा सूचना</text>
+</svg>

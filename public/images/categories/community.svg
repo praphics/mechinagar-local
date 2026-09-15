@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#f0dcd9"/>
+  <circle cx="620" cy="560" r="80" fill="#9c2b34" opacity="0.2"/>
+  <circle cx="800" cy="500" r="100" fill="#9c2b34" opacity="0.16"/>
+  <circle cx="1000" cy="560" r="80" fill="#9c2b34" opacity="0.2"/>
+  <circle cx="1180" cy="600" r="60" fill="#9c2b34" opacity="0.18"/>
+  <text x="80" y="900" font-family="Noto Sans Devanagari, Noto Sans, sans-serif" font-size="56" font-weight="700" fill="#4a2a2a">समुदाय</text>
+</svg>

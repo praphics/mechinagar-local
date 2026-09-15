@@ -1,0 +1,35 @@
+{
+  "name": "mechinagar-local",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "library:download": "node --experimental-strip-types scripts/download-library-image.ts",
+    "generate:image": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/generate-image.ts",
+    "newsletter:today": "node --experimental-strip-types scripts/build-newsletter.ts --today",
+    "evidence:ingest": "node --experimental-strip-types scripts/ingest-evidence.ts",
+    "newsroom": "node --experimental-strip-types scripts/newsroom-action.ts",
+    "newsletter:draft": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/newsletter-beehiiv-draft.ts",
+    "check:city-agnostic": "node --experimental-strip-types scripts/check-city-agnostic.ts"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.9",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

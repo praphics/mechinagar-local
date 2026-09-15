@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mechinagar-local-dev",
+      "runtimeExecutable": "D:\\Mechinagar-Local\\.claude\\dev.bat",
+      "runtimeArgs": [],
+      "port": 3000
+    }
+  ]
+}

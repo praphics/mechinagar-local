@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #fbf8f4;
+  --color-surface: #ffffff;
+  --color-ink: #211c1a;
+  --color-ink-muted: #5c5450;
+  --color-ink-faint: #8a827c;
+  --color-line: #e6ded4;
+  --color-brand: #9c2b34;
+  --color-brand-dark: #7a1f27;
+  --color-brand-tint: #f5e6e4;
+  --color-notice: #8a5a12;
+  --color-notice-tint: #f6ecd9;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-line: var(--color-line);
+  --color-brand: var(--color-brand);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-tint: var(--color-brand-tint);
+  --color-notice: var(--color-notice);
+  --color-notice-tint: var(--color-notice-tint);
+  --font-sans: var(--font-noto-sans), var(--font-noto-devanagari), ui-sans-serif, system-ui, sans-serif;
+  --font-devanagari: var(--font-noto-devanagari), var(--font-noto-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Shared typography tokens — reused across pages instead of repeating
+   text-size/leading combinations per component. Devanagari needs more
+   line-height than Latin script at equivalent sizes to read comfortably. */
+@layer components {
+  .eyebrow {
+    @apply text-sm font-semibold tracking-wide text-brand uppercase;
+  }
+
+  .h-display {
+    @apply text-[2rem] sm:text-4xl md:text-[2.75rem] font-bold leading-[1.35] tracking-tight text-ink;
+  }
+
+  .h-section {
+    @apply text-lg sm:text-xl font-bold leading-[1.4] text-ink;
+  }
+
+  .h-headline {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold leading-[1.45] text-ink;
+  }
+
+  .h-card {
+    @apply text-lg sm:text-xl font-semibold leading-[1.55] text-ink;
+  }
+
+  .h-card-compact {
+    @apply text-base font-semibold leading-[1.55] text-ink;
+  }
+
+  .body-text {
+    @apply text-base leading-[1.95] text-ink;
+  }
+
+  .meta-text {
+    @apply text-sm leading-normal text-ink-muted;
+  }
+
+  .summary-text {
+    @apply text-base leading-[1.85] text-ink-muted;
+  }
+
+  /* Styles the HTML rendered from an article's Markdown body. */
+  .article-body {
+    @apply text-base leading-[1.95] text-ink;
+  }
+
+  .article-body p {
+    @apply mb-5;
+  }
+
+  .article-body p:last-child {
+    @apply mb-0;
+  }
+
+  .article-body a {
+    @apply text-brand underline underline-offset-2;
+  }
+
+  .article-body strong {
+    @apply font-semibold;
+  }
+
+  .article-body em {
+    @apply italic;
+  }
+
+  .article-body blockquote {
+    @apply border-l-2 border-brand pl-4 my-5 italic text-ink-muted;
+  }
+
+  .article-body h2,
+  .article-body h3 {
+    @apply text-lg sm:text-xl font-bold leading-[1.4] text-ink mt-8 mb-3;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    @apply mb-5 flex flex-col gap-1.5 pl-5;
+  }
+
+  .article-body ul {
+    @apply list-disc;
+  }
+
+  .article-body ol {
+    @apply list-decimal;
+  }
+}

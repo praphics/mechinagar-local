@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#e7d6c9"/>
+  <circle cx="1260" cy="230" r="260" fill="#9c2b34" opacity="0.12"/>
+  <path d="M0 720 L420 560 L760 700 L1120 520 L1600 660 L1600 1000 L0 1000 Z" fill="#9c2b34" opacity="0.16"/>
+  <path d="M0 800 L360 690 L740 800 L1120 660 L1600 780 L1600 1000 L0 1000 Z" fill="#7a1f27" opacity="0.14"/>
+  <text x="80" y="900" font-family="Noto Sans Devanagari, Noto Sans, sans-serif" font-size="56" font-weight="700" fill="#3a2e29">स्थानीय समाचार</text>
+</svg>
